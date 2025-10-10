@@ -1,11 +1,14 @@
-// ========== Game States ==========
+// ========== Game States =========================
 const MENU = "menu";
 const POP_BUBBLE = "pop_The_Bubble";
-const NEXT_GAME_2 = "next_game";
+//const NEXT_GAME_2 = "next_game";
+const CARD_GAME = "card_Game";
+const JELLYFISHING = "jellyfishing";
+const AVOID_SHARK = "avoid_The_Shark"
 
 let gameState = MENU;
 
-// ========== #1 Bubble Game Variables ==========
+// ========== #1 Bubble Game Variables ============
 let bubbles = [];
 let totalBubbles = 5;
 let poppedCount = 0;
@@ -13,9 +16,13 @@ let startTime;
 let endTime;
 let gameOver = false;
 
-//=========== #2 next game variables ============
+//=========== #2 Jace's game variables =============
 
 
+//=========== #3 Logan's game variables ============
+
+
+//=========== #4 Oscar's game variables ============
 
 // ========== Setup ==========
 function setup() {
@@ -35,8 +42,14 @@ function draw() {
   else if (gameState === POP_BUBBLE) {
     playBubbleGame();
   } 
-  else if (gameState === NEXT_GAME_2) {
-    playNextGame2(); // Placeholder for your second game
+  else if (gameState === CARD_GAME) {
+    playCardGame(); // Placeholder for Jace's game
+  }
+  else if (gameState === JELLYFISHING) {
+    playJellyfishing(); // Placeholder for Logan's game
+  }
+  else if (gameState === AVOID_THE_SHARK) {
+    playAvoidTheShark(); // Placeholder for Oscar's game
   }
 }
 
@@ -58,7 +71,7 @@ function mousePressed() {
     resetBubbleGame();
   } 
   else if (gameState === POP_BUBBLE && gameOver) {
-    gameState = NEXT_GAME_2;
+    gameState = CARD_GAME;
   } 
   else if (gameState === POP_BUBBLE) {
     for (let i = bubbles.length - 1; i >= 0; i--) {
@@ -77,7 +90,7 @@ function mousePressed() {
 }
 
 // ========== Bubble Game Logic ==========
-function resetBubbleGame() {
+/*function resetBubbleGame() {
   bubbles = [];
   for (let i = 0; i < totalBubbles; i++) {
     bubbles.push(new Bubble(random(width), random(height), random(25, 45)));
@@ -86,6 +99,21 @@ function resetBubbleGame() {
   startTime = millis();
   gameOver = false;
 }
+*/
+
+function resetBubbleGame() {
+  bubbles = [];
+  for (let i = 0; i < totalBubbles; i++) {
+    let r = random(25, 45);                    // radius
+    let x = random(r, width - r);              // x safely within screen
+    let y = random(r, height - r);             // y safely within screen
+    bubbles.push(new Bubble(x, y, r));
+  }
+  poppedCount = 0;
+  startTime = millis();
+  gameOver = false;
+}
+
 
 function playBubbleGame() {
   if (!gameOver) {
@@ -142,13 +170,16 @@ class Bubble {
   }
 }
 
-// ========== Next Game Placeholder ==========
-function playNextGame2() {
-  background(0);
-  fill(255, 255, 0);
-  textSize(28);
-  textAlign(CENTER, CENTER);
-  text("🚀 Next Game Placeholder 🚀", width / 2, height / 2 - 30);
-  textSize(20);
-  text("Add your next mini-game here!", width / 2, height / 2 + 20);
+// ========== Jace's Game Placeholder ==========
+function playCardGame() {
+  
+}
+
+// =========== Logan's Game Placeholder ========
+function playJellyfishing() {
+  
+}
+// =========== Oscar's Game Placeholder ========
+function playAvoidTheShark() {
+  
 }
