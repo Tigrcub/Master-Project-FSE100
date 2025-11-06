@@ -1,4 +1,4 @@
-// ========== Game States =========================
+// ========== Game States =========================s
 const MENU = "menu";
 const POP_BUBBLE = "pop_The_Bubble";
 //const NEXT_GAME_2 = "next_game";
