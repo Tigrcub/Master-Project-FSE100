@@ -1,4 +1,4 @@
-// ========== Game States =========================
+// ========== Game States ====================== omfg the aneurism i had
 const MENU = "menu";
 const POP_BUBBLE = "pop_The_Bubble";
 //const NEXT_GAME_2 = "next_game";
@@ -8,7 +8,7 @@ const AVOID_SHARK = "avoid_The_Shark"
 
 let gameState = MENU;
 
-// ========== #1 Bubble Game Variables ============
+// ========== BUBBLE_POP variables ============
 let bubbles = [];
 let totalBubbles = 5;
 let poppedCount = 0;
@@ -16,23 +16,21 @@ let startTime;
 let endTime;
 let gameOver = false;
 
-//=========== #2 Jace's game variables =============
+//=========== CARD_GAME variables =============
 
 
-//=========== #3 Logan's game variables ============
+//=========== JELLYFISHING variables ============
 
 
-//=========== #4 Oscar's game variables ============
+//=========== AVOID_THE_SHARK variables ============
 
 // ========== Setup ==========
 function setup() {
   createCanvas(600, 400);
-  if (gameState === POP_BUBBLE) {
-    resetBubbleGame();
-  }
+  
 }
 
-// ========== Main Draw Loop ==========
+// ========== Main Menu if loop ==========
 function draw() {
   background(30, 30, 50);
 
@@ -64,7 +62,7 @@ function drawMainMenu() {
   text("Click to Start 'Pop the Bubbles'", width / 2, height / 2);
 }
 
-// ========== Mouse Interaction ==========
+// ========== buttons and mouse navigation ==========
 function mousePressed() {
   if (gameState === MENU) {
     gameState = POP_BUBBLE;
@@ -89,24 +87,13 @@ function mousePressed() {
   }
 }
 
-// ========== Bubble Game Logic ==========
-/*function resetBubbleGame() {
-  bubbles = [];
-  for (let i = 0; i < totalBubbles; i++) {
-    bubbles.push(new Bubble(random(width), random(height), random(25, 45)));
-  }
-  poppedCount = 0;
-  startTime = millis();
-  gameOver = false;
-}
-*/
 
 function resetBubbleGame() {
   bubbles = [];
   for (let i = 0; i < totalBubbles; i++) {
-    let r = random(25, 45);                    // radius
-    let x = random(r, width - r);              // x safely within screen
-    let y = random(r, height - r);             // y safely within screen
+    let r = random(25, 45);                    
+    let x = random(r, width - r);              
+    let y = random(r, height - r);            
     bubbles.push(new Bubble(x, y, r));
   }
   poppedCount = 0;
@@ -148,7 +135,7 @@ class Bubble {
     this.r = r;
     this.xspeed = random(-2, 2);
     this.yspeed = random(-2, 2);
-    this.color = color(150, 200, 255, 180); // light blue
+    this.color = color(150, 200, 255, 180); // light blue - ish
   }
 
   move() {
@@ -170,16 +157,16 @@ class Bubble {
   }
 }
 
-// ========== Jace's Game Placeholder ==========
+// ========== CARD_GAME Placeholder ==========
 function playCardGame() {
   
 }
 
-// =========== Logan's Game Placeholder ========
+// =========== JELLYFISHING Placeholder ========
 function playJellyfishing() {
   
 }
-// =========== Oscar's Game Placeholder ========
+// =========== AVOID_THE_SHARK Placeholder ========
 function playAvoidTheShark() {
   
 }
