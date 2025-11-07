@@ -116,7 +116,8 @@ function playBubbleGame() {
     text(`Time: ${elapsed.toFixed(2)}s`, 10, 30);
     text(`Popped: ${poppedCount}/${totalBubbles}`, 10, 55);
   } else {
-    background = loadimage("https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/refs/heads/BUBBLE_POP/bubblebackground.jpg");
+    //background = loadimage("https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/refs/heads/BUBBLE_POP/bubblebackground.jpg");
+    background(20, 80, 40);
     fill(255);
     textAlign(CENTER);
     textSize(30);
