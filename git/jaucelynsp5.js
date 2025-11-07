@@ -15,6 +15,7 @@ let poppedCount = 0;
 let startTime;
 let endTime;
 let gameOver = false;
+let bbgbg;
 
 //=========== CARD_GAME variables =============
 
@@ -29,10 +30,13 @@ function setup() {
   createCanvas(600, 400);
   
 }
+function preload(){
+  bbgbg = loadImage('https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/refs/heads/BUBBLE_POP/bubblebackground.jpg')
+}
 
 // ========== Main Menu if loop ==========
 function draw() {
-  background(30, 30, 50);
+  background(20, 30, 50);
 
   if (gameState === MENU) {
     drawMainMenu();
@@ -61,7 +65,9 @@ function drawMainMenu() {
   textSize(20);
   text("Click to Start 'Pop the Bubbles'", width / 2, height / 2);
 }
-
+function drawBubbleGame(){
+  background(bbgbg);
+}
 // ========== buttons and mouse navigation ==========
 function mousePressed() {
   if (gameState === MENU) {
@@ -88,6 +94,7 @@ function mousePressed() {
 }
 
 
+
 function resetBubbleGame() {
   bubbles = [];
   for (let i = 0; i < totalBubbles; i++) {
@@ -104,6 +111,7 @@ function resetBubbleGame() {
 
 function playBubbleGame() {
   if (!gameOver) {
+    drawBubbleGame();
     for (let b of bubbles) {
       b.move();
       b.show();
@@ -116,8 +124,7 @@ function playBubbleGame() {
     text(`Time: ${elapsed.toFixed(2)}s`, 10, 30);
     text(`Popped: ${poppedCount}/${totalBubbles}`, 10, 55);
   } else {
-    //background = loadimage("https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/refs/heads/BUBBLE_POP/bubblebackground.jpg");
-    background(20, 80, 40);
+   background(20, 80, 40);
     fill(255);
     textAlign(CENTER);
     textSize(30);
@@ -128,7 +135,7 @@ function playBubbleGame() {
   }
 }
 
-// ========== Bubble Class ==========
+// ========== Class for the actual bubbles ==========
 class Bubble {
   constructor(x, y, r) {
     this.x = x;
