@@ -3,7 +3,7 @@ let background;
 let screen = "menu"; 
 
 function preload() {
-  background = loadImage("ocean-scenery-cartoon-background-free-vector (1).jpg");
+  background = loadImage("https://github.com/Tigrcub/Master-Project-FSE100/blob/main/ocean-scenery-cartoon-background-free-vector%20(1).jpg");
 }
 
 function setup() {
