@@ -1,4 +1,4 @@
-// Jellyfishing — 3-Ring Bullseye + Early End + Personal Best + Time Bonus (p5.js)
+// Jellyfishing — 3-Ring Bullseye + Early End + Personal Best + Time Bonus 
 
 let score = 0;
 let hits = 0, misses = 0;
