@@ -15,22 +15,19 @@ let menuBgImg;  // main menu background
 
 // ========== Setup ==========
 function setup() {
-  createCanvas(600, 400);
+  // use same size as your menu design + background image
+  createCanvas(800, 600);
 }
 
 // Single global preload for all images
 function preload() {
-  // Bubble Pop background
-  bbgbg = loadImage(
-    "https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/refs/heads/BUBBLE_POP/bubblebackground.jpg"
-  );
+  // Bubble Pop background — local file in your repo
+  bbgbg = loadImage("bubblebackground.jpg");
 
-  // Menu background (raw GitHub URL)
-  if (typeof MENU_BG_URL !== "undefined") {
-    menuBgImg = loadImage(MENU_BG_URL);
-  }
+  // Menu background — local file in your repo
+  menuBgImg = loadImage("ocean-scenery-cartoon-background-free-vector (1).jpg");
 
-  // Jellyfishing image (jellyfishURL is defined in jellyfishing.js)
+  // Jellyfishing image (remote, defined in jellyfishing.js)
   if (typeof jellyfishURL !== "undefined") {
     jellyImg = loadImage(
       jellyfishURL,
@@ -75,8 +72,4 @@ function mousePressed() {
   else if (gameState === POP_BUBBLE) {
     handleBubbleMousePressed();
   } 
-  else if (gameState === JELLYFISHING) {
-    handleJellyMousePressed();
-  }
-  // You can add card/shark click handlers later if needed
-}
+  else if (gameS
