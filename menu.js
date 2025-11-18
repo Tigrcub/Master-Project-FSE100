@@ -1,10 +1,6 @@
 // ===== Menu variables =====
 let menuScreen = "menu"; // "menu", "play", "Exit", "about"
 
-// raw GitHub URL for the menu background image
-const MENU_BG_URL =
-  "https://raw.githubusercontent.com/Tigrcub/Master-Project-FSE100/main/ocean-scenery-cartoon-background-free-vector%20(1).jpg";
-
 // ========== Main Menu ==========
 function drawMainMenu() {
   // Background
@@ -116,83 +112,4 @@ function drawMenuButton() {
 }
 
 function drawPlayAgainButton() {
-  drawButton(width / 2, height - 200, "Play Again?");
-}
-
-function drawBackButton() {
-  drawButton(width - 700, height - 50, "Back");
-}
-
-function overButton(x, y) {
-  return (
-    mouseX > x - 100 &&
-    mouseX < x + 100 &&
-    mouseY > y - 30 &&
-    mouseY < y + 30
-  );
-}
-
-function overAnyButton() {
-  if (menuScreen === "menu") {
-    return (
-      overButton(width / 2, 250) ||
-      overButton(width / 2, 350) ||
-      overButton(width / 2, 450)
-    );
-  } else if (menuScreen === "play") {
-    return overButton(width - 700, height - 50);
-  } else if (menuScreen === "about" || menuScreen === "Exit") {
-    return (
-      overButton(width - 700, height - 50) ||
-      overButton(width / 2, height - 200)
-    );
-  }
-  return false;
-}
-
-// Handle clicks on the menu screens
-function handleMenuClick() {
-  if (menuScreen === "menu") {
-    if (overButton(width / 2, 250)) {
-      menuScreen = "play";
-    } else if (overButton(width / 2, 350)) {
-      menuScreen = "Exit";
-    } else if (overButton(width / 2, 450)) {
-      menuScreen = "about";
-    }
-  } 
-  else if (menuScreen === "play") {
-    // Game selection squares
-    if (overRect(300, 250, 150, 150)) {
-      gameState = POP_BUBBLE;
-      resetBubbleGame();
-    } else if (overRect(500, 250, 150, 150)) {
-      gameState = CARD_GAME;
-    } else if (overRect(300, 450, 150, 150)) {
-      gameState = JELLYFISHING;
-    } else if (overRect(500, 450, 150, 150)) {
-      gameState = AVOID_SHARK;
-    } else if (overButton(width - 700, height - 50)) {
-      menuScreen = "menu";
-    }
-  } 
-  else if (menuScreen === "about") {
-    if (overButton(width - 700, height - 50)) {
-      menuScreen = "menu";
-    }
-  } 
-  else if (menuScreen === "Exit") {
-    if (overButton(width / 2, height - 200)) {
-      menuScreen = "menu";
-    } else if (overButton(width - 700, height - 50)) {
-      menuScreen = "menu";
-    }
-  }
-}
-
-function overRect(x, y, w, h) {
-  return (
-    mouseX > x && mouseX < x + w &&
-    mouseY > y && mouseY < y + h
-  );
-}
+  drawButton
