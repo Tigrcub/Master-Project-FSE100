@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Super Aquatic Bros.</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+
+    <!-- Game files (order matters a little: helpers first, sketch.js last) -->
+    <script src="menu.js"></script>
+    <script src="bubble_pop.js"></script>
+    <script src="jellyfishing.js"></script>
+    <script src="card_game.js"></script>
+    <script src="avoid_shark.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body></body>
+</html>
